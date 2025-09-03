@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: ${PROFILE:development}
+  application:
+    name: user
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  cloud:
+    config:
+      uri: http://configuration:8888
